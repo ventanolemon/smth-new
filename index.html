@@ -12,6 +12,209 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Содержимое будет здесь -->
+    <!-- Фиксированный хедер с навигацией -->
+    <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <span class="has-text-weight-bold" style="color: #3498db; font-size: 1.5rem;">NutriBox</span>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasic" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#about">О нас</a>
+                    <a class="navbar-item" href="#benefits">Преимущества</a>
+                    <a class="navbar-item" href="#menu">Меню</a>
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item button is-primary" href="#order">
+                        Заказать
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero is-medium" style="padding-top: 70px; background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-6">
+                        <h1 class="title is-1" style="color: #2c3e50; font-weight: 800;">
+                            Здоровое питание для вашего ритма жизни
+                        </h1>
+                        <h2 class="subtitle is-4" style="color: #7f8c8d; margin: 1.5rem 0;">
+                            Сбалансированные обеды от профессиональных шеф-поваров. 
+                            Доставка свежих блюд каждый день в удобное для вас время.
+                        </h2>
+                        <div class="buttons">
+                            <a class="button is-primary is-medium" href="#order">
+                                <span>Попробовать бесплатно</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <figure class="image is-4by3">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Здоровое питание">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "О проекте" -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <figure class="image is-3by2">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="О нас">
+                    </figure>
+                </div>
+                <div class="column is-6">
+                    <h2 class="title is-2" style="color: #2c3e50;">О нашей миссии</h2>
+                    <div class="content" style="margin-top: 1.5rem;">
+                        <p class="is-size-5">
+                            NutriBox был создан с целью сделать здоровое питание доступным и удобным для жителей мегаполисов. Мы верим, что правильное питание — это основа продуктивной жизни и хорошего самочувствия.
+                        </p>
+                        <p class="is-size-5" style="margin-top: 1rem;">
+                            Наши шеф-повара и нутрициологи разрабатывают меню с учетом всех потребностей организма, используя только свежие, натуральные продукты без консервантов и ГМО.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Преимущества" -->
+    <section class="section has-background-light" id="benefits">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 3rem;">
+                <h2 class="title is-2" style="color: #2c3e50;">Наши преимущества</h2>
+            </div>
+            
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="is-size-1 has-text-primary mb-3">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <p class="title is-4">100% натуральные продукты</p>
+                            <p class="content mt-2">
+                                Только свежие овощи, фрукты, мясо и рыба от проверенных фермеров.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="is-size-1 has-text-primary mb-3">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <p class="title is-4">Быстрая доставка</p>
+                            <p class="content mt-2">
+                                Доставляем свежие блюда ежедневно с 8:00 до 22:00.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="is-size-1 has-text-primary mb-3">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <p class="title is-4">Профессиональные шеф-повара</p>
+                            <p class="content mt-2">
+                                Наши блюда готовят опытные шеф-повара с многолетним стажем.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer" style="background-color: #2c3e50; color: rgba(255,255,255,0.7);">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4">
+                    <h3 class="title is-4 has-text-white">NutriBox</h3>
+                    <p style="margin-top: 1rem;">
+                        Здоровое питание для вашего ритма жизни.
+                    </p>
+                </div>
+                <div class="column is-4">
+                    <h4 class="title is-6 has-text-white" style="margin-bottom: 1rem;">Контакты</h4>
+                    <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.7);">
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-map-marker-alt mr-2"></i> г. Москва, ул. Здоровья, д. 15
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-phone mr-2"></i> +7 (495) 123-45-67
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-envelope mr-2"></i> info@nutribot.ru
+                        </li>
+                    </ul>
+                </div>
+                <div class="column is-4">
+                    <h4 class="title is-6 has-text-white" style="margin-bottom: 1rem;">Мы в соцсетях</h4>
+                    <div class="buttons">
+                        <a class="button is-white is-rounded mr-2" href="#">
+                            <span class="icon is-small">
+                                <i class="fab fa-telegram" style="color: #3498db;"></i>
+                            </span>
+                        </a>
+                        <a class="button is-white is-rounded mr-2" href="#">
+                            <span class="icon is-small">
+                                <i class="fab fa-vk" style="color: #4a76a8;"></i>
+                            </span>
+                        </a>
+                        <a class="button is-white is-rounded" href="#">
+                            <span class="icon is-small">
+                                <i class="fab fa-instagram" style="color: #e4405f;"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.5);">
+                <p>© 2025 NutriBox. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript для navbar burger -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
