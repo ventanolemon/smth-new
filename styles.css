@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBox - Здоровое питание с доставкой</title>
+    <!-- Bulma CSS Framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* Кастомные стили для минималистичного дизайна */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .hero {
+            padding-top: 70px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        }
+        
+        .section {
+            padding: 6rem 1.5rem;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 1.5rem 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 120px;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center !important;
+            }
+            
+            .image-container {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Фиксированный хедер с навигацией -->
+    <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <span class="has-text-weight-bold" style="color: #3498db; font-size: 1.5rem;">NutriBox</span>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasic" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#about">О нас</a>
+                    <a class="navbar-item" href="#benefits">Преимущества</a>
+                    <a class="navbar-item" href="#menu">Меню</a>
+                    <a class="navbar-item" href="#contacts">Контакты</a>
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item cta-button" href="#order">
+                        Заказать
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-6">
+                        <h1 class="title is-1" style="color: #2c3e50; font-weight: 800;">
+                            Здоровое питание для вашего ритма жизни
+                        </h1>
+                        <h2 class="subtitle is-4" style="color: #7f8c8d; margin: 1.5rem 0;">
+                            Сбалансированные обеды от профессиональных шеф-поваров. 
+                            Доставка свежих блюд каждый день в удобное для вас время.
+                        </h2>
+                        <div class="buttons hero-buttons">
+                            <a class="button is-medium cta-button" href="#order">
+                                <span>Попробовать бесплатно</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </a>
+                            <a class="button is-medium is-outlined" href="#menu">
+                                <span>Посмотреть меню</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-utensils"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-6 image-container">
+                        <figure class="image is-4by3">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Здоровое питание">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "О проекте" -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <figure class="image is-3by2">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="О нас">
+                    </figure>
+                </div>
+                <div class="column is-6">
+                    <h2 class="title is-2" style="color: #2c3e50;">О нашей миссии</h2>
+                    <div class="content" style="margin-top: 1.5rem;">
+                        <p class="is-size-5">
+                            NutriBox был создан с целью сделать здоровое питание доступным и удобным для жителей мегаполисов. Мы верим, что правильное питание — это основа продуктивной жизни и хорошего самочувствия.
+                        </p>
+                        <p class="is-size-5" style="margin-top: 1rem;">
+                            Наши шеф-повара и нутрициологи разрабатывают меню с учетом всех потребностей организма, используя только свежие, натуральные продукты без консервантов и ГМО.
+                        </p>
+                        <div class="buttons" style="margin-top: 2rem;">
+                            <a class="button cta-button" href="#order">
+                                Начать питаться правильно
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Преимущества" -->
+    <section class="section has-background-light" id="benefits">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 4rem;">
+                <h2 class="title is-2" style="color: #2c3e50;">Наши преимущества</h2>
+                <p class="subtitle is-4" style="color: #7f8c8d; margin-top: 1rem;">
+                    Почему тысячи клиентов выбирают NutriBox
+                </p>
+            </div>
+            
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <p class="title is-4">100% натуральные продукты</p>
+                            <p class="content" style="color: #7f8c8d;">
+                                Только свежие овощи, фрукты, мясо и рыба от проверенных фермеров и поставщиков. Без консервантов и искусственных добавок.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="feature-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <p class="title is-4">Быстрая доставка</p>
+                            <p class="content" style="color: #7f8c8d;">
+                                Доставляем свежие блюда ежедневно с 8:00 до 22:00 в удобное для вас время. Собственная логистика гарантирует скорость и качество.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <p class="title is-4">Профессиональные шеф-повара</p>
+                            <p class="content" style="color: #7f8c8d;">
+                                Наши блюда готовят опытные шеф-повара с многолетним стажем, которые постоянно разрабатывают новые полезные и вкусные рецепты.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Меню" -->
+    <section class="section" id="menu">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 4rem;">
+                <h2 class="title is-2" style="color: #2c3e50;">Наши популярные блюда</h2>
+                <p class="subtitle is-4" style="color: #7f8c8d; margin-top: 1rem;">
+                    Вкусно и полезно — это возможно
+                </p>
+            </div>
+            
+            <div class="columns is-multiline">
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Салат с курицей">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-5">Салат с курицей и авокадо</p>
+                            <p class="subtitle is-6" style="color: #7f8c8d;">Белковый обед, 420 ккал</p>
+                            <div class="content" style="margin-top: 0.5rem;">
+                                Нежная куриная грудка, спелый авокадо, свежие овощи и заправка из оливкового масла
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Овсяная каша">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-5">Овсяная каша с ягодами</p>
+                            <p class="subtitle is-6" style="color: #7f8c8d;">Завтрак, 350 ккал</p>
+                            <div class="content" style="margin-top: 0.5rem;">
+                                Овсяные хлопья на воде с молоком, свежие ягоды, орехи и мед
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Фруктовый смузи">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-5">Фруктовый смузи</p>
+                            <p class="subtitle is-6" style="color: #7f8c8d;">Напиток, 220 ккал</p>
+                            <div class="content" style="margin-top: 0.5rem;">
+                                Свежие бананы, ягоды, греческий йогурт и мед для заряда энергии
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Рыба с овощами">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-5">Запеченная рыба с овощами</p>
+                            <p class="subtitle is-6" style="color: #7f8c8d;">Ужин, 380 ккал</p>
+                            <div class="content" style="margin-top: 0.5rem;">
+                                Семга, запеченная с оливковым маслом и травами, с овощным гарниром
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="has-text-centered" style="margin-top: 3rem;">
+                <a class="button is-large cta-button" href="#order">
+                    <span>Выбрать свой рацион</span>
+                    <span class="icon is-small">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4">
+                    <h3 class="title is-4 has-text-white">NutriBox</h3>
+                    <p style="margin-top: 1rem; color: rgba(255,255,255,0.7);">
+                        Здоровое питание для вашего ритма жизни. Свежие, сбалансированные блюда с доставкой на дом или в офис.
+                    </p>
+                </div>
+                <div class="column is-2">
+                    <h4 class="title is-6 has-text-white" style="margin-bottom: 1.5rem;">Навигация</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="#about" style="color: rgba(255,255,255,0.7); text-decoration: none;">О нас</a>
+                        </li>
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="#benefits" style="color: rgba(255,255,255,0.7); text-decoration: none;">Преимущества</a>
+                        </li>
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="#menu" style="color: rgba(255,255,255,0.7); text-decoration: none;">Меню</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column is-3">
+                    <h4 class="title is-6 has-text-white" style="margin-bottom: 1.5rem;">Контакты</h4>
+                    <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.7);">
+                        <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+                            <span class="icon" style="margin-right: 0.75rem; margin-top: 0.25rem;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <span>г. Москва, ул. Здоровья, д. 15</span>
+                        </li>
+                        <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+                            <span class="icon" style="margin-right: 0.75rem; margin-top: 0.25rem;">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                            <span>+7 (495) 123-45-67</span>
+                        </li>
+                        <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+                            <span class="icon" style="margin-right: 0.75rem; margin-top: 0.25rem;">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span>info@nutribot.ru</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column is-3">
+                    <h4 class="title is-6 has-text-white" style="margin-bottom: 1.5rem;">Мы в соцсетях</h4>
+                    <div class="buttons">
+                        <a class="button is-white is-rounded" href="#" style="margin-right: 0.5rem;">
+                            <span class="icon is-small">
+                                <i class="fab fa-telegram" style="color: #3498db;"></i>
+                            </span>
+                        </a>
+                        <a class="button is-white is-rounded" href="#" style="margin-right: 0.5rem;">
+                            <span class="icon is-small">
+                                <i class="fab fa-vk" style="color: #4a76a8;"></i>
+                            </span>
+                        </a>
+                        <a class="button is-white is-rounded" href="#">
+                            <span class="icon is-small">
+                                <i class="fab fa-instagram" style="color: #e4405f;"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p style="margin-top: 1.5rem; color: rgba(255,255,255,0.7);">
+                        <strong>Подписывайтесь</strong> на наши соцсети, чтобы получать новые рецепты и специальные предложения
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.5);">
+                <p>© 2025 NutriBox. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript для navbar burger -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Получаем все элементы ".navbar-burger"
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            // Проверяем, есть ли элементы navbar burger
+            if ($navbarBurgers.length > 0) {
+                // Добавляем прослушиватель клика ко всем элементам navbar burger
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+                        // Получаем целевой элемент из атрибута data-target
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        
+                        // Переключаем классы
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
