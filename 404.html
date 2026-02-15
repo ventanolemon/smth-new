@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #3273dc;
+      --text-heading: #0a0a0a;
+      --text-paragraph: #333333;
+      --text-light: #777777;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
@@ -14,10 +20,9 @@
       display: flex;
       flex-direction: column;
     }
-    .hero-body {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-heading) !important;
+      font-weight: 700;
     }
     .math-bg {
       position: absolute;
@@ -29,7 +34,7 @@
       font-size: 20vw;
       text-align: center;
       line-height: 1;
-      color: #3273dc;
+      color: var(--primary);
       pointer-events: none;
       z-index: -1;
     }
@@ -57,13 +62,13 @@
   <section class="hero is-fullheight">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1 class="title is-1" style="font-size: 8rem; font-weight: 800; color: #3273dc; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h1 class="title is-1" style="font-size: 8rem; font-weight: 800; color: var(--primary); text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
           404
         </h1>
-        <h2 class="title is-2" style="color: #0a0a0a; margin-top: -1rem;">
+        <h2 class="title is-2" style="color: var(--text-heading); margin-top: -1rem;">
           Страница не найдена
         </h2>
-        <p class="subtitle is-4" style="color: #666; max-width: 600px; margin: 1.5rem auto;">
+        <p class="subtitle is-4" style="color: var(--text-paragraph); max-width: 600px; margin: 1.5rem auto;">
           Похоже, вы попали в точку разрыва функции. Вернитесь на главную страницу, чтобы продолжить работу с платформой.
         </p>
         <div class="buttons is-centered mt-4">
@@ -91,7 +96,7 @@
     </div>
   </section>
 
-  <!-- Минимальный футер -->
+  <!-- ФУТЕР -->
   <footer class="footer" style="background-color: #1a1a1a; color: rgba(255,255,255,0.7); padding: 1.5rem 1.5rem;">
     <div class="container has-text-centered">
       <p>© 2026 MathGen. Все права защищены.</p>
