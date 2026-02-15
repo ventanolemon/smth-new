@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница не найдена | MathGen</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-body {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+    .math-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      font-size: 20vw;
+      text-align: center;
+      line-height: 1;
+      color: #3273dc;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <!-- ХЕДЕР -->
+  <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: rgba(255,255,255,0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html" style="color: #0a0a0a; font-weight: 700;">
+        <strong>MathGen</strong>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="index.html" style="color: #0a0a0a;">
+          На главную
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="math-bg">404</div>
+
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-1" style="font-size: 8rem; font-weight: 800; color: #3273dc; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          404
+        </h1>
+        <h2 class="title is-2" style="color: #0a0a0a; margin-top: -1rem;">
+          Страница не найдена
+        </h2>
+        <p class="subtitle is-4" style="color: #666; max-width: 600px; margin: 1.5rem auto;">
+          Похоже, вы попали в точку разрыва функции. Вернитесь на главную страницу, чтобы продолжить работу с платформой.
+        </p>
+        <div class="buttons is-centered mt-4">
+          <a href="index.html" class="button is-primary is-large">
+            <span>Вернуться на главную</span>
+            <span class="icon is-small ml-2">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+          <a href="contacts.html" class="button is-light is-large">
+            <span>Сообщить об ошибке</span>
+          </a>
+        </div>
+        <div class="mt-6">
+          <p class="has-text-grey-dark">
+            Или воспользуйтесь навигацией:
+          </p>
+          <nav class="mt-3">
+            <a href="index.html" class="button is-white mx-2">Главная</a>
+            <a href="faq.html" class="button is-white mx-2">FAQ</a>
+            <a href="contacts.html" class="button is-white mx-2">Контакты</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Минимальный футер -->
+  <footer class="footer" style="background-color: #1a1a1a; color: rgba(255,255,255,0.7); padding: 1.5rem 1.5rem;">
+    <div class="container has-text-centered">
+      <p>© 2026 MathGen. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Автоматическое перенаправление на главную через 30 секунд
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 30000);
+  </script>
+</body>
+</html>
