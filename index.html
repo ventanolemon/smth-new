@@ -1,220 +1,299 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriBox - Здоровое питание с доставкой</title>
-    <!-- Bulma CSS Framework -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-    <!-- Font Awesome для иконок -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!-- Кастомные стили -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathGen — Генератор вариантов по математике</title>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3273dc;
+      --secondary: #1e5799;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+    .hero {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      padding: 4rem 1.5rem;
+    }
+    .section-features {
+      background-color: #fff;
+    }
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 8px;
+      padding: 1.5rem;
+      height: 100%;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+    footer {
+      background-color: #24292e;
+      color: #fff;
+    }
+    .footer-link {
+      color: rgba(255,255,255,0.85);
+      transition: color 0.2s;
+    }
+    .footer-link:hover {
+      color: #fff;
+    }
+    .math-formula {
+      font-family: 'Cambria Math', 'Times New Roman', serif;
+      font-style: italic;
+      background: #f8f9fa;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
-    <!-- Фиксированный хедер с навигацией -->
-    <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="#">
-                    <span class="has-text-weight-bold" style="color: #3498db; font-size: 1.5rem;">NutriBox</span>
-                </a>
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div id="navbarBasic" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="#about">О нас</a>
-                    <a class="navbar-item" href="#benefits">Преимущества</a>
-                    <a class="navbar-item" href="#menu">Меню</a>
-                </div>
-                <div class="navbar-end">
-                    <a class="navbar-item button is-primary" href="#order">
-                        Заказать
-                    </a>
-                </div>
-            </div>
+  <!-- Хедер -->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <strong>MathGen</strong>
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#features">Возможности</a>
+        <a class="navbar-item" href="#how-it-works">Как это работает</a>
+        <a class="navbar-item" href="#for-teachers">Для преподавателей</a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light" href="#contact">Контакты</a>
+            <a class="button is-primary" href="#try">
+              <strong>Попробовать</strong>
+            </a>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Герой-секция -->
-    <section class="hero is-medium" style="padding-top: 70px; background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns is-vcentered">
-                    <div class="column is-6">
-                        <h1 class="title is-1" style="color: #2c3e50; font-weight: 800;">
-                            Здоровое питание для вашего ритма жизни
-                        </h1>
-                        <h2 class="subtitle is-4" style="color: #7f8c8d; margin: 1.5rem 0;">
-                            Сбалансированные обеды от профессиональных шеф-поваров. 
-                            Доставка свежих блюд каждый день в удобное для вас время.
-                        </h2>
-                        <div class="buttons">
-                            <a class="button is-primary is-medium" href="#order">
-                                <span>Попробовать бесплатно</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="column is-6">
-                        <figure class="image is-4by3">
-                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Здоровое питание">
-                        </figure>
-                    </div>
-                </div>
+  <!-- Герой-секция -->
+  <section class="hero is-medium">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column">
+            <h1 class="title is-1" style="font-weight: 700;">
+              Уникальные варианты заданий<br>за <span class="stat-number">62</span> секунды
+            </h1>
+            <h2 class="subtitle is-4 mt-3">
+              Платформа для преподавателей математики: параметризованные шаблоны → тысячи корректных вариантов с экспортом в Word и формулами LaTeX
+            </h2>
+            <div class="buttons mt-5">
+              <a class="button is-primary is-large" href="#try">
+                <span>Начать бесплатно</span>
+                <span class="icon is-small ml-2">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </a>
+              <a class="button is-light is-large" href="#demo">
+                <span class="icon">
+                  <i class="fas fa-play"></i>
+                </span>
+                <span>Демо-генерация</span>
+              </a>
             </div>
+            <div class="mt-5">
+              <span class="tag is-success mr-2">ФГОС</span>
+              <span class="tag is-info mr-2">LaTeX</span>
+              <span class="tag is-warning">sympy-валидация</span>
+            </div>
+          </div>
+          <div class="column is-5">
+            <figure class="image is-4by3">
+              <div class="box has-text-centered" style="background: #f0f5ff; border: 2px dashed #a0c4ff;">
+                <p class="title is-3" style="color: #3273dc;">템плейт → 10⁴ вариантов</p>
+                <p class="subtitle is-6">Визуализация генерации (можно заменить на SVG)</p>
+              </div>
+            </figure>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Секция "О проекте" -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="columns is-vcentered">
-                <div class="column is-6">
-                    <figure class="image is-3by2">
-                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="О нас">
-                    </figure>
-                </div>
-                <div class="column is-6">
-                    <h2 class="title is-2" style="color: #2c3e50;">О нашей миссии</h2>
-                    <div class="content" style="margin-top: 1.5rem;">
-                        <p class="is-size-5">
-                            NutriBox был создан с целью сделать здоровое питание доступным и удобным для жителей мегаполисов. Мы верим, что правильное питание — это основа продуктивной жизни и хорошего самочувствия.
-                        </p>
-                        <p class="is-size-5" style="margin-top: 1rem;">
-                            Наши шеф-повара и нутрициологи разрабатывают меню с учетом всех потребностей организма, используя только свежие, натуральные продукты без консервантов и ГМО.
-                        </p>
-                    </div>
-                </div>
+  <!-- Проблема -->
+  <section class="section">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-5">
+          <figure class="image is-4by3">
+            <div class="box has-text-centered" style="background: #fff3cd;">
+              <p class="title is-2" style="color: #856404;">3–4 часа</p>
+              <p class="subtitle is-5" style="color: #856404;">на создание 30 вариантов вручную</p>
             </div>
+          </figure>
         </div>
-    </section>
-
-    <!-- Секция "Преимущества" -->
-    <section class="section has-background-light" id="benefits">
-        <div class="container">
-            <div class="has-text-centered" style="margin-bottom: 3rem;">
-                <h2 class="title is-2" style="color: #2c3e50;">Наши преимущества</h2>
-            </div>
-            
-            <div class="columns is-multiline">
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <div class="is-size-1 has-text-primary mb-3">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <p class="title is-4">100% натуральные продукты</p>
-                            <p class="content mt-2">
-                                Только свежие овощи, фрукты, мясо и рыба от проверенных фермеров.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <div class="is-size-1 has-text-primary mb-3">
-                                <i class="fas fa-truck"></i>
-                            </div>
-                            <p class="title is-4">Быстрая доставка</p>
-                            <p class="content mt-2">
-                                Доставляем свежие блюда ежедневно с 8:00 до 22:00.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-content has-text-centered">
-                            <div class="is-size-1 has-text-primary mb-3">
-                                <i class="fas fa-utensils"></i>
-                            </div>
-                            <p class="title is-4">Профессиональные шеф-повара</p>
-                            <p class="content mt-2">
-                                Наши блюда готовят опытные шеф-повара с многолетним стажем.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="column">
+          <h2 class="title is-3">Проблема преподавателей</h2>
+          <p class="subtitle is-6 mb-4">
+            Стандартизация образования (ФГОС, балльно-рейтинговая система) требует десятков уникальных вариантов контрольных, но ручное составление занимает часы.
+          </p>
+          <ul class="mb-4">
+            <li class="mb-2"><i class="fas fa-times-circle has-text-danger mr-2"></i> Риск ошибок при ручном изменении параметров</li>
+            <li class="mb-2"><i class="fas fa-times-circle has-text-danger mr-2"></i> Дублирование вариантов между студентами</li>
+            <li class="mb-2"><i class="fas fa-times-circle has-text-danger mr-2"></i> Нет профессионального экспорта с формулами</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Футер -->
-    <footer class="footer" style="background-color: #2c3e50; color: rgba(255,255,255,0.7);">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-4">
-                    <h3 class="title is-4 has-text-white">NutriBox</h3>
-                    <p style="margin-top: 1rem;">
-                        Здоровое питание для вашего ритма жизни.
-                    </p>
-                </div>
-                <div class="column is-4">
-                    <h4 class="title is-6 has-text-white" style="margin-bottom: 1rem;">Контакты</h4>
-                    <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.7);">
-                        <li style="margin-bottom: 0.5rem;">
-                            <i class="fas fa-map-marker-alt mr-2"></i> г. Москва, ул. Здоровья, д. 15
-                        </li>
-                        <li style="margin-bottom: 0.5rem;">
-                            <i class="fas fa-phone mr-2"></i> +7 (495) 123-45-67
-                        </li>
-                        <li style="margin-bottom: 0.5rem;">
-                            <i class="fas fa-envelope mr-2"></i> info@nutribot.ru
-                        </li>
-                    </ul>
-                </div>
-                <div class="column is-4">
-                    <h4 class="title is-6 has-text-white" style="margin-bottom: 1rem;">Мы в соцсетях</h4>
-                    <div class="buttons">
-                        <a class="button is-white is-rounded mr-2" href="#">
-                            <span class="icon is-small">
-                                <i class="fab fa-telegram" style="color: #3498db;"></i>
-                            </span>
-                        </a>
-                        <a class="button is-white is-rounded mr-2" href="#">
-                            <span class="icon is-small">
-                                <i class="fab fa-vk" style="color: #4a76a8;"></i>
-                            </span>
-                        </a>
-                        <a class="button is-white is-rounded" href="#">
-                            <span class="icon is-small">
-                                <i class="fab fa-instagram" style="color: #e4405f;"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
+  <!-- Преимущества -->
+  <section class="section section-features">
+    <div class="container">
+      <div class="has-text-centered mb-6">
+        <h2 class="title is-2">Как это работает</h2>
+        <p class="subtitle is-5">Параметризованный шаблон → автоматическая генерация уникальных вариантов</p>
+      </div>
+      <div class="columns is-multiline">
+        <div class="column is-6-tablet is-3-desktop">
+          <div class="feature-card box">
+            <div class="icon is-large mb-3" style="color: #3273dc;">
+              <i class="fas fa-bolt fa-2x"></i>
             </div>
-            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.5);">
-                <p>© 2025 NutriBox. Все права защищены.</p>
-            </div>
+            <h3 class="title is-4 mb-3">Генерация за 62 сек</h3>
+            <p>30 уникальных вариантов вместо нескольких часов ручной работы</p>
+          </div>
         </div>
-    </footer>
+        <div class="column is-6-tablet is-3-desktop">
+          <div class="feature-card box">
+            <div class="icon is-large mb-3" style="color: #3273dc;">
+              <i class="fas fa-file-word fa-2x"></i>
+            </div>
+            <h3 class="title is-4 mb-3">Экспорт в Word</h3>
+            <p>Автоматическая генерация .docx с формулами <span class="math-formula">∫x²dx</span> через LaTeX</p>
+          </div>
+        </div>
+        <div class="column is-6-tablet is-3-desktop">
+          <div class="feature-card box">
+            <div class="icon is-large mb-3" style="color: #3273dc;">
+              <i class="fas fa-shield-check fa-2x"></i>
+            </div>
+            <h3 class="title is-4 mb-3">Гарантированная корректность</h3>
+            <p>Каждое задание проходит символьную валидацию через <strong>sympy</strong></p>
+          </div>
+        </div>
+        <div class="column is-6-tablet is-3-desktop">
+          <div class="feature-card box">
+            <div class="icon is-large mb-3" style="color: #3273dc;">
+              <i class="fas fa-chart-bar fa-2x"></i>
+            </div>
+            <h3 class="title is-4 mb-3">Аналитика ошибок</h3>
+            <p>Выявление проблемных тем у группы для коррекции учебного плана</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript для navbar burger -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            
-            if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach( el => {
-                    el.addEventListener('click', () => {
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
-                        
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
-                    });
-                });
-            }
+  <!-- Пример -->
+  <section class="section" style="background-color: #f8f9fa;">
+    <div class="container">
+      <div class="has-text-centered mb-6">
+        <h2 class="title is-2">От шаблона к варианту</h2>
+        <p class="subtitle is-5">Один шаблон → тысячи уникальных заданий</p>
+      </div>
+      <div class="columns is-vcentered">
+        <div class="column">
+          <div class="box">
+            <p class="title is-5 mb-3">Шаблон задания</p>
+            <div class="content">
+              <p>Найти предел: <span class="math-formula">\lim_{x \to a} \frac{x^2 - b}{x - c}</span></p>
+              <p class="mt-3"><strong>Параметры:</strong> a ∈ [2, 5], b = a², c ∈ [1, 4], c ≠ a</p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-2 has-text-centered">
+          <i class="fas fa-arrow-right fa-2x" style="color: #3273dc;"></i>
+        </div>
+        <div class="column">
+          <div class="box">
+            <p class="title is-5 mb-3">Сгенерированный вариант</p>
+            <div class="content">
+              <p>Найти предел: <span class="math-formula">\lim_{x \to 3} \frac{x^2 - 9}{x - 2}</span></p>
+              <p class="mt-3 has-text-success"><i class="fas fa-check-circle mr-2"></i> Валидация пройдена: ответ = 6</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <h3 class="title is-4" style="color: #fff;">MathGen</h3>
+          <p class="mb-4">Платформа для преподавателей математики — автоматизация создания учебных материалов</p>
+          <div>
+            <a class="footer-link mr-3" href="#"><i class="fab fa-github fa-lg"></i></a>
+            <a class="footer-link mr-3" href="#"><i class="fab fa-telegram fa-lg"></i></a>
+            <a class="footer-link" href="#"><i class="fab fa-vk fa-lg"></i></a>
+          </div>
+        </div>
+        <div class="column is-2">
+          <h4 class="title is-6" style="color: #fff; opacity: 0.85;">Навигация</h4>
+          <ul>
+            <li><a class="footer-link" href="#features">Возможности</a></li>
+            <li><a class="footer-link" href="#how-it-works">Как это работает</a></li>
+            <li><a class="footer-link" href="#for-teachers">Для преподавателей</a></li>
+          </ul>
+        </div>
+        <div class="column is-3">
+          <h4 class="title is-6" style="color: #fff; opacity: 0.85;">Контакты</h4>
+          <ul>
+            <li class="mb-2"><i class="fas fa-envelope mr-2"></i> support@mathgen.edu.ru</li>
+            <li><i class="fas fa-university mr-2"></i> Для вузов и школ РФ</li>
+          </ul>
+        </div>
+      </div>
+      <div class="has-text-centered mt-5" style="color: rgba(255,255,255,0.6);">
+        <p>© 2026 MathGen. Привязка к ФГОС РФ. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS для мобильного меню -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
         });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
