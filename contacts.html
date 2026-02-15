@@ -9,19 +9,33 @@
   <style>
     :root {
       --primary: #3273dc;
+      --primary-dark: #1e5799;
       --text-heading: #0a0a0a;
       --text-paragraph: #333333;
       --text-light: #777777;
+      --bg-light: #fafafa;
+      --border-color: #e0e0e0;
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text-paragraph);
       background-color: #ffffff;
       padding-top: 4rem;
+      line-height: 1.6;
     }
     h1, h2, h3, h4, h5, h6 {
       color: var(--text-heading) !important;
       font-weight: 700;
+    }
+    .math-formula {
+      font-family: 'Cambria Math', serif;
+      font-style: italic;
+      background: #f0f0f0;
+      color: var(--text-heading);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid #d0d0d0;
     }
     .review-card {
       background: #ffffff;
@@ -46,7 +60,7 @@
   </style>
 </head>
 <body>
-  <!-- ХЕДЕР (вставьте сюда код хедера из Шага 1) -->
+  <!-- ХЕДЕР -->
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" style="background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
     <div class="navbar-brand">
       <a class="navbar-item" href="index.html" style="color: #0a0a0a; font-weight: 700;">
@@ -73,7 +87,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary" href="index.html#try">
+            <a class="button is-primary" href="index.html">
               <strong>Попробовать</strong>
             </a>
           </div>
@@ -86,7 +100,7 @@
   <section class="hero is-light is-medium">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title is-1">Свяжитесь с нами</h1>
+        <h1 class="title is-1" style="color: var(--text-heading);">Свяжитесь с нами</h1>
         <h2 class="subtitle is-4" style="color: var(--text-light);">
           Оставьте отзыв, задайте вопрос или предложите улучшение
         </h2>
@@ -100,22 +114,22 @@
       <div class="columns">
         <!-- Форма -->
         <div class="column is-6">
-          <h2 class="title is-3 mb-5">Форма обратной связи</h2>
+          <h2 class="title is-3 mb-5" style="color: var(--text-heading);">Форма обратной связи</h2>
           <form id="feedbackForm">
             <div class="field">
-              <label class="label">Имя</label>
+              <label class="label" style="color: var(--text-heading);">Имя</label>
               <div class="control">
                 <input class="input" type="text" placeholder="Ваше имя" required>
               </div>
             </div>
             <div class="field">
-              <label class="label">Email</label>
+              <label class="label" style="color: var(--text-heading);">Email</label>
               <div class="control">
                 <input class="input" type="email" placeholder="example@email.com" required>
               </div>
             </div>
             <div class="field">
-              <label class="label">Тема</label>
+              <label class="label" style="color: var(--text-heading);">Тема</label>
               <div class="control">
                 <div class="select is-fullwidth">
                   <select required>
@@ -129,14 +143,14 @@
               </div>
             </div>
             <div class="field">
-              <label class="label">Сообщение</label>
+              <label class="label" style="color: var(--text-heading);">Сообщение</label>
               <div class="control">
                 <textarea class="textarea" placeholder="Ваше сообщение..." rows="5" required></textarea>
               </div>
             </div>
             <div class="field">
               <div class="control">
-                <label class="checkbox">
+                <label class="checkbox" style="color: var(--text-paragraph);">
                   <input type="checkbox" required>
                   Соглашаюсь на обработку персональных данных
                 </label>
@@ -158,25 +172,33 @@
         <!-- Контакты + Отзывы -->
         <div class="column is-6">
           <div class="content mb-6">
-            <h3 class="title is-4 mb-4">Контактная информация</h3>
-            <p class="mb-3"><i class="fas fa-map-marker-alt mr-2"></i> г. Москва, ул. Академика Королёва, 12</p>
-            <p class="mb-3"><i class="fas fa-phone mr-2"></i> +7 (495) 123-45-67</p>
-            <p class="mb-3"><i class="fas fa-envelope mr-2"></i> support@mathgen.edu.ru</p>
-            <p class="mb-3"><i class="fas fa-clock mr-2"></i> Пн-Пт: 9:00–18:00 МСК</p>
+            <h3 class="title is-4 mb-4" style="color: var(--text-heading);">Контактная информация</h3>
+            <p class="mb-3" style="color: var(--text-paragraph);">
+              <i class="fas fa-map-marker-alt mr-2"></i> г. Москва, ул. Академика Королёва, 12
+            </p>
+            <p class="mb-3" style="color: var(--text-paragraph);">
+              <i class="fas fa-phone mr-2"></i> +7 (495) 123-45-67
+            </p>
+            <p class="mb-3" style="color: var(--text-paragraph);">
+              <i class="fas fa-envelope mr-2"></i> support@mathgen.edu.ru
+            </p>
+            <p class="mb-3" style="color: var(--text-paragraph);">
+              <i class="fas fa-clock mr-2"></i> Пн-Пт: 9:00–18:00 МСК
+            </p>
             <div class="mt-4">
-              <a href="#" class="button is-white mr-2" aria-label="Telegram">
-                <i class="fab fa-telegram" style="color: #0088cc;"></i>
+              <a href="#" class="button is-white mr-2" aria-label="Telegram" style="color: #0088cc;">
+                <i class="fab fa-telegram fa-lg"></i>
               </a>
-              <a href="#" class="button is-white mr-2" aria-label="VK">
-                <i class="fab fa-vk" style="color: #4c75a3;"></i>
+              <a href="#" class="button is-white mr-2" aria-label="VK" style="color: #4c75a3;">
+                <i class="fab fa-vk fa-lg"></i>
               </a>
-              <a href="#" class="button is-white" aria-label="GitHub">
-                <i class="fab fa-github" style="color: #333;"></i>
+              <a href="#" class="button is-white" aria-label="GitHub" style="color: #333;">
+                <i class="fab fa-github fa-lg"></i>
               </a>
             </div>
           </div>
 
-          <h3 class="title is-4 mb-4">Отзывы преподавателей</h3>
+          <h3 class="title is-4 mb-4" style="color: var(--text-heading);">Отзывы преподавателей</h3>
           
           <div class="review-card">
             <div class="rating">
@@ -186,7 +208,9 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <p class="mb-3">«За семестр создал 120 уникальных вариантов контрольных по математическому анализу. Раньше на это уходили недели, теперь — минуты. Особенно ценю экспорт в Word с корректными формулами.»</p>
+            <p class="mb-3" style="color: var(--text-paragraph);">
+              «За семестр создал 120 уникальных вариантов контрольных по математическому анализу. Раньше на это уходили недели, теперь — минуты. Особенно ценю экспорт в Word с корректными формулами.»
+            </p>
             <div class="review-author">Анна Петровна С.</div>
             <div class="review-position">Доцент, МГТУ им. Баумана</div>
           </div>
@@ -199,7 +223,9 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="mb-3">«Использую платформу для подготовки к ЕГЭ. Генерация 30 вариантов занимает меньше минуты, а валидация через sympy исключает ошибки в ответах. Студенты больше не находят опечаток в заданиях!»</p>
+            <p class="mb-3" style="color: var(--text-paragraph);">
+              «Использую платформу для подготовки к ЕГЭ. Генерация 30 вариантов занимает меньше минуты, а валидация через sympy исключает ошибки в ответах. Студенты больше не находят опечаток в заданиях!»
+            </p>
             <div class="review-author">Михаил Владимирович К.</div>
             <div class="review-position">Учитель математики, школа №1543</div>
           </div>
@@ -208,7 +234,7 @@
     </div>
   </section>
 
-  <!-- ФУТЕР (вставьте сюда код футера из Шага 1) -->
+  <!-- ФУТЕР -->
   <footer class="footer" style="background-color: #1a1a1a; color: #ffffff; padding: 3rem 1.5rem 2rem;">
     <div class="container">
       <div class="columns">
@@ -252,7 +278,6 @@
     </div>
   </footer>
 
-  <!-- JS для мобильного меню -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -265,7 +290,6 @@
         });
       });
 
-      // Простая обработка формы (в реальном проекте — отправка на сервер)
       const form = document.getElementById('feedbackForm');
       if (form) {
         form.addEventListener('submit', (e) => {
