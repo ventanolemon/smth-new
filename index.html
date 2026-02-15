@@ -11,61 +11,60 @@
   <style>
     :root {
       --primary: #3273dc;
-      --secondary: #1e5799;
+      --primary-dark: #1e5799;
+      --text-heading: #0a0a0a; /* Очень тёмный для заголовков */
+      --text-paragraph: #333333; /* Стандартный для основного текста */
+      --text-light: #777777; /* Светло-серый для второстепенного текста */
+      --bg-white: #ffffff;
+      --bg-light: #fafafa;
+      --border-color: #e0e0e0;
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
+      color: var(--text-paragraph);
+      background-color: var(--bg-white);
+      line-height: 1.6;
     }
-    .hero {
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-      padding: 4rem 1.5rem;
-    }
-    .section-features {
-      background-color: #fff;
-    }
-    .feature-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 8px;
-      padding: 1.5rem;
-      height: 100%;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-heading) !important; /* Максимально тёмные заголовки */
+      font-weight: 700;
     }
     .stat-number {
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--primary-dark);
       line-height: 1;
     }
-    footer {
-      background-color: #24292e;
-      color: #fff;
-    }
-    .footer-link {
-      color: rgba(255,255,255,0.85);
-      transition: color 0.2s;
-    }
-    .footer-link:hover {
-      color: #fff;
+    .light-text {
+      color: var(--text-light) !important; /* Светлый текст для пунктов списка */
     }
     .math-formula {
       font-family: 'Cambria Math', 'Times New Roman', serif;
       font-style: italic;
-      background: #f8f9fa;
+      background: #f0f0f0;
+      color: var(--text-heading);
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
       display: inline-block;
+      border: 1px solid #d0d0d0;
+    }
+    footer {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+    .footer-link {
+      color: rgba(255,255,255,0.85);
+    }
+    .footer-link:hover {
+      color: #ffffff;
     }
   </style>
 </head>
 <body>
   <!-- Хедер -->
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" style="background-color: var(--bg-white); box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" href="#" style="color: var(--text-heading); font-weight: 700;">
         <strong>MathGen</strong>
       </a>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
@@ -76,14 +75,22 @@
     </div>
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="#features">Возможности</a>
-        <a class="navbar-item" href="#how-it-works">Как это работает</a>
-        <a class="navbar-item" href="#for-teachers">Для преподавателей</a>
+        <a class="navbar-item" href="#features" style="color: var(--text-heading);">
+          Возможности
+        </a>
+        <a class="navbar-item" href="#how-it-works" style="color: var(--text-heading);">
+          Как это работает
+        </a>
+        <a class="navbar-item" href="#for-teachers" style="color: var(--text-heading);">
+          Для преподавателей
+        </a>
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-light" href="#contact">Контакты</a>
+            <a class="button is-light" href="#contact" style="color: var(--text-heading);">
+              Контакты
+            </a>
             <a class="button is-primary" href="#try">
               <strong>Попробовать</strong>
             </a>
@@ -94,15 +101,15 @@
   </nav>
 
   <!-- Герой-секция -->
-  <section class="hero is-medium">
+  <section class="hero is-medium" style="background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); padding: 4rem 1.5rem;">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered">
           <div class="column">
-            <h1 class="title is-1" style="font-weight: 700;">
+            <h1 class="title is-1" style="color: var(--text-heading);">
               Уникальные варианты заданий<br>за <span class="stat-number">62</span> секунды
             </h1>
-            <h2 class="subtitle is-4 mt-3">
+            <h2 class="subtitle is-4 mt-3" style="color: var(--text-light);">
               Платформа для преподавателей математики: параметризованные шаблоны → тысячи корректных вариантов с экспортом в Word и формулами LaTeX
             </h2>
             <div class="buttons mt-5">
@@ -119,17 +126,11 @@
                 <span>Демо-генерация</span>
               </a>
             </div>
-            <div class="mt-5">
-              <span class="tag is-success mr-2">ФГОС</span>
-              <span class="tag is-info mr-2">LaTeX</span>
-              <span class="tag is-warning">sympy-валидация</span>
-            </div>
           </div>
           <div class="column is-5">
             <figure class="image is-4by3">
-              <div class="box has-text-centered" style="background: #f0f5ff; border: 2px dashed #a0c4ff;">
-                <p class="title is-3" style="color: #3273dc;">템плейт → 10⁴ вариантов</p>
-                <p class="subtitle is-6">Визуализация генерации (можно заменить на SVG)</p>
+              <div class="box has-text-centered" style="background: #eef5ff; border: 2px dashed #a0c4ff;">
+                <p class="title is-3" style="color: var(--primary-dark);">Шаблон → 10⁴ вариантов</p>
               </div>
             </figure>
           </div>
@@ -144,21 +145,27 @@
       <div class="columns is-vcentered">
         <div class="column is-5">
           <figure class="image is-4by3">
-            <div class="box has-text-centered" style="background: #fff3cd;">
-              <p class="title is-2" style="color: #856404;">3–4 часа</p>
-              <p class="subtitle is-5" style="color: #856404;">на создание 30 вариантов вручную</p>
+            <div class="box has-text-centered" style="background: #fff3cd; border: 2px solid #ffc107;">
+              <p class="title is-2" style="color: #856404; font-weight: 700;">3–4 часа</p>
+              <p class="subtitle is-5" style="color: #664d03;">на создание 30 вариантов вручную</p>
             </div>
           </figure>
         </div>
         <div class="column">
-          <h2 class="title is-3">Проблема преподавателей</h2>
-          <p class="subtitle is-6 mb-4">
+          <h2 class="title is-3" style="color: var(--text-heading);">Проблема преподавателей</h2>
+          <p class="subtitle is-6 mb-4" style="color: var(--text-paragraph);">
             Стандартизация образования (ФГОС, балльно-рейтинговая система) требует десятков уникальных вариантов контрольных, но ручное составление занимает часы.
           </p>
-          <ul class="mb-4">
-            <li class="mb-2"><i class="fas fa-times-circle has-text-danger mr-2"></i> Риск ошибок при ручном изменении параметров</li>
-            <li class="mb-2"><i class="fas fa-times-circle has-text-danger mr-2"></i> Дублирование вариантов между студентами</li>
-            <li class="mb-2"><i class="fas fa-times-circle has-text-danger mr-2"></i> Нет профессионального экспорта с формулами</li>
+          <ul style="list-style-type: none; padding-left: 0;">
+            <li class="mb-3 light-text">
+              <i class="fas fa-times-circle has-text-danger mr-2"></i> Риск ошибок при ручном изменении параметров
+            </li>
+            <li class="mb-3 light-text">
+              <i class="fas fa-times-circle has-text-danger mr-2"></i> Дублирование вариантов между студентами
+            </li>
+            <li class="mb-3 light-text">
+              <i class="fas fa-times-circle has-text-danger mr-2"></i> Нет профессионального экспорта с формулами
+            </li>
           </ul>
         </div>
       </div>
@@ -166,47 +173,49 @@
   </section>
 
   <!-- Преимущества -->
-  <section class="section section-features">
+  <section class="section">
     <div class="container">
       <div class="has-text-centered mb-6">
-        <h2 class="title is-2">Как это работает</h2>
-        <p class="subtitle is-5">Параметризованный шаблон → автоматическая генерация уникальных вариантов</p>
+        <h2 class="title is-2" style="color: var(--text-heading);">Как это работает</h2>
+        <p class="subtitle is-5" style="color: var(--text-light);">
+          Параметризованный шаблон → автоматическая генерация уникальных вариантов
+        </p>
       </div>
       <div class="columns is-multiline">
         <div class="column is-6-tablet is-3-desktop">
-          <div class="feature-card box">
-            <div class="icon is-large mb-3" style="color: #3273dc;">
+          <div class="box" style="height: 100%;">
+            <div class="icon is-large mb-3" style="color: var(--primary);">
               <i class="fas fa-bolt fa-2x"></i>
             </div>
-            <h3 class="title is-4 mb-3">Генерация за 62 сек</h3>
-            <p>30 уникальных вариантов вместо нескольких часов ручной работы</p>
+            <h3 class="title is-4 mb-3" style="color: var(--text-heading);">Генерация за 62 сек</h3>
+            <p class="light-text">30 уникальных вариантов вместо нескольких часов ручной работы</p>
           </div>
         </div>
         <div class="column is-6-tablet is-3-desktop">
-          <div class="feature-card box">
-            <div class="icon is-large mb-3" style="color: #3273dc;">
+          <div class="box" style="height: 100%;">
+            <div class="icon is-large mb-3" style="color: var(--primary);">
               <i class="fas fa-file-word fa-2x"></i>
             </div>
-            <h3 class="title is-4 mb-3">Экспорт в Word</h3>
-            <p>Автоматическая генерация .docx с формулами <span class="math-formula">∫x²dx</span> через LaTeX</p>
+            <h3 class="title is-4 mb-3" style="color: var(--text-heading);">Экспорт в Word</h3>
+            <p class="light-text">Автоматическая генерация .docx с формулами <span class="math-formula">∫x²dx</span></p>
           </div>
         </div>
         <div class="column is-6-tablet is-3-desktop">
-          <div class="feature-card box">
-            <div class="icon is-large mb-3" style="color: #3273dc;">
+          <div class="box" style="height: 100%;">
+            <div class="icon is-large mb-3" style="color: var(--primary);">
               <i class="fas fa-shield-check fa-2x"></i>
             </div>
-            <h3 class="title is-4 mb-3">Гарантированная корректность</h3>
-            <p>Каждое задание проходит символьную валидацию через <strong>sympy</strong></p>
+            <h3 class="title is-4 mb-3" style="color: var(--text-heading);">Гарантированная корректность</h3>
+            <p class="light-text">Каждое задание проходит символьную валидацию через <strong>sympy</strong></p>
           </div>
         </div>
         <div class="column is-6-tablet is-3-desktop">
-          <div class="feature-card box">
-            <div class="icon is-large mb-3" style="color: #3273dc;">
+          <div class="box" style="height: 100%;">
+            <div class="icon is-large mb-3" style="color: var(--primary);">
               <i class="fas fa-chart-bar fa-2x"></i>
             </div>
-            <h3 class="title is-4 mb-3">Аналитика ошибок</h3>
-            <p>Выявление проблемных тем у группы для коррекции учебного плана</p>
+            <h3 class="title is-4 mb-3" style="color: var(--text-heading);">Аналитика ошибок</h3>
+            <p class="light-text">Выявление проблемных тем у группы для коррекции учебного плана</p>
           </div>
         </div>
       </div>
@@ -214,30 +223,32 @@
   </section>
 
   <!-- Пример -->
-  <section class="section" style="background-color: #f8f9fa;">
+  <section class="section" style="background-color: var(--bg-light);">
     <div class="container">
       <div class="has-text-centered mb-6">
-        <h2 class="title is-2">От шаблона к варианту</h2>
-        <p class="subtitle is-5">Один шаблон → тысячи уникальных заданий</p>
+        <h2 class="title is-2" style="color: var(--text-heading);">От шаблона к варианту</h2>
+        <p class="subtitle is-5" style="color: var(--text-light);">
+          Один шаблон → тысячи уникальных заданий
+        </p>
       </div>
       <div class="columns is-vcentered">
         <div class="column">
           <div class="box">
-            <p class="title is-5 mb-3">Шаблон задания</p>
+            <p class="title is-5 mb-3" style="color: var(--text-heading);">Шаблон задания</p>
             <div class="content">
-              <p>Найти предел: <span class="math-formula">\lim_{x \to a} \frac{x^2 - b}{x - c}</span></p>
-              <p class="mt-3"><strong>Параметры:</strong> a ∈ [2, 5], b = a², c ∈ [1, 4], c ≠ a</p>
+              <p class="light-text">Найти предел: <span class="math-formula">\lim_{x \to a} \frac{x^2 - b}{x - c}</span></p>
+              <p class="mt-3 light-text"><strong>Параметры:</strong> a ∈ [2, 5], b = a², c ∈ [1, 4], c ≠ a</p>
             </div>
           </div>
         </div>
         <div class="column is-2 has-text-centered">
-          <i class="fas fa-arrow-right fa-2x" style="color: #3273dc;"></i>
+          <i class="fas fa-arrow-right fa-2x" style="color: var(--primary);"></i>
         </div>
         <div class="column">
           <div class="box">
-            <p class="title is-5 mb-3">Сгенерированный вариант</p>
+            <p class="title is-5 mb-3" style="color: var(--text-heading);">Сгенерированный вариант</p>
             <div class="content">
-              <p>Найти предел: <span class="math-formula">\lim_{x \to 3} \frac{x^2 - 9}{x - 2}</span></p>
+              <p class="light-text">Найти предел: <span class="math-formula">\lim_{x \to 3} \frac{x^2 - 9}{x - 2}</span></p>
               <p class="mt-3 has-text-success"><i class="fas fa-check-circle mr-2"></i> Валидация пройдена: ответ = 6</p>
             </div>
           </div>
@@ -249,34 +260,16 @@
   <!-- Футер -->
   <footer class="footer">
     <div class="container">
-      <div class="columns">
-        <div class="column is-4">
-          <h3 class="title is-4" style="color: #fff;">MathGen</h3>
-          <p class="mb-4">Платформа для преподавателей математики — автоматизация создания учебных материалов</p>
-          <div>
-            <a class="footer-link mr-3" href="#"><i class="fab fa-github fa-lg"></i></a>
-            <a class="footer-link mr-3" href="#"><i class="fab fa-telegram fa-lg"></i></a>
-            <a class="footer-link" href="#"><i class="fab fa-vk fa-lg"></i></a>
-          </div>
+      <div class="content has-text-centered">
+        <p>
+          <strong style="color: #ffffff;">MathGen</strong> — платформа для преподавателей математики.<br>
+          <a href="mailto:support@mathgen.edu.ru" style="color: rgba(255,255,255,0.85);">support@mathgen.edu.ru</a>
+        </p>
+        <div class="mt-3">
+          <a class="footer-link mr-3" href="#"><i class="fab fa-github fa-lg"></i></a>
+          <a class="footer-link mr-3" href="#"><i class="fab fa-telegram fa-lg"></i></a>
+          <a class="footer-link" href="#"><i class="fab fa-vk fa-lg"></i></a>
         </div>
-        <div class="column is-2">
-          <h4 class="title is-6" style="color: #fff; opacity: 0.85;">Навигация</h4>
-          <ul>
-            <li><a class="footer-link" href="#features">Возможности</a></li>
-            <li><a class="footer-link" href="#how-it-works">Как это работает</a></li>
-            <li><a class="footer-link" href="#for-teachers">Для преподавателей</a></li>
-          </ul>
-        </div>
-        <div class="column is-3">
-          <h4 class="title is-6" style="color: #fff; opacity: 0.85;">Контакты</h4>
-          <ul>
-            <li class="mb-2"><i class="fas fa-envelope mr-2"></i> support@mathgen.edu.ru</li>
-            <li><i class="fas fa-university mr-2"></i> Для вузов и школ РФ</li>
-          </ul>
-        </div>
-      </div>
-      <div class="has-text-centered mt-5" style="color: rgba(255,255,255,0.6);">
-        <p>© 2026 MathGen. Привязка к ФГОС РФ. Все права защищены.</p>
       </div>
     </div>
   </footer>
